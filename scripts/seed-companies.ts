@@ -2,11 +2,11 @@ import "dotenv/config";
 import { createClient } from "@supabase/supabase-js";
 import companyData from "../data/companies.json";
 
-const companies = companyData['companies'];
+const companies = companyData["companies"];
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SECRET_KEY!
+  process.env.SUPABASE_SECRET_KEY!,
 );
 
 function createSlug(name: string) {
@@ -56,7 +56,7 @@ async function seed() {
 
       if (serviceError) {
         throw new Error(
-          `Failed to insert services for ${company.company_name}: ${serviceError.message}`
+          `Failed to insert services for ${company.company_name}: ${serviceError.message}`,
         );
       }
     }
@@ -74,9 +74,7 @@ async function seed() {
         .in("name", company.services);
 
       if (error) {
-        throw new Error(
-          `Failed to fetch services: ${error.message}`
-        );
+        throw new Error(`Failed to fetch services: ${error.message}`);
       }
 
       services = data ?? [];
@@ -112,7 +110,7 @@ async function seed() {
         },
         {
           onConflict: "slug",
-        }
+        },
       )
       .select("id")
       .single();
@@ -121,7 +119,7 @@ async function seed() {
       throw new Error(
         `Failed to insert company ${company.company_name}: ${
           companyError?.message
-        }`
+        }`,
       );
     }
 
@@ -145,7 +143,7 @@ async function seed() {
 
       if (relationError) {
         throw new Error(
-          `Failed to link services for ${company.company_name}: ${relationError.message}`
+          `Failed to link services for ${company.company_name}: ${relationError.message}`,
         );
       }
     }
@@ -168,7 +166,7 @@ async function seed() {
 
       if (sourceError) {
         throw new Error(
-          `Failed to insert sources for ${company.company_name}: ${sourceError.message}`
+          `Failed to insert sources for ${company.company_name}: ${sourceError.message}`,
         );
       }
     }
@@ -180,7 +178,7 @@ async function seed() {
 }
 
 seed().catch((error) => {
-  console.error("\n❌ Seed failed:");
+  console.error("\nSeed failed:");
   console.error(error);
   process.exit(1);
 });
