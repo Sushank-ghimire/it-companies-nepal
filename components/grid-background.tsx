@@ -2,9 +2,43 @@ export function GridBackground() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 -z-10 opacity-[0.035]
-        [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)]
-        [background-size:64px_64px]"
-    />
+      className="
+        pointer-events-none
+        absolute
+        left-1/2
+        top-0
+        -z-10
+        h-[700px]
+        w-[min(1200px,90vw)]
+        -translate-x-1/2
+        overflow-hidden
+        rounded-[50%]
+        opacity-60
+      "
+    >
+      <div
+        className="
+          absolute
+          inset-0
+          opacity-[0.045]
+          [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)]
+          [background-size:64px_64px]
+        "
+      />
+      <div
+        className="
+          absolute
+          inset-0
+          bg-[radial-gradient(ellipse_at_center,transparent_20%,var(--background)_78%)]
+        "
+      />
+      <div
+        className="
+          absolute
+          inset-0
+          bg-[linear-gradient(to_bottom,transparent_0%,transparent_65%,var(--background)_100%)]
+        "
+      />
+    </div>
   );
 }
