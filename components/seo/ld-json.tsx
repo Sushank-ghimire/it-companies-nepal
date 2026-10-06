@@ -19,15 +19,13 @@ export default function JsonLd() {
         description:
           "Discover IT companies, software development companies, and technology businesses in Nepal.",
         isPartOf: {
-          "@id":
-            "https://itcompaniesnepal.ghimiresushank.com.np/#website",
+          "@id": "https://itcompaniesnepal.ghimiresushank.com.np/#website",
         },
         inLanguage: "en",
       },
       {
         "@type": "Organization",
-        "@id":
-          "https://itcompaniesnepal.ghimiresushank.com.np/#organization",
+        "@id": "https://itcompaniesnepal.ghimiresushank.com.np/#organization",
         name: "IT Companies Nepal",
         url: "https://itcompaniesnepal.ghimiresushank.com.np",
         description:

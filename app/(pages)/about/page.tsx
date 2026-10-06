@@ -1,11 +1,5 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Database,
-  Github,
-  Heart,
-  MapPin,
-} from "lucide-react";
+import { ArrowRight, Database, Github, Heart, MapPin } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { aboutHighlights } from "@/constants/hightlights";
@@ -49,11 +43,7 @@ export default function AboutPage() {
               size="lg"
               className="rounded-full px-6"
             >
-              <a
-                href="https://github.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://github.com/" target="_blank" rel="noreferrer">
                 <Github className="mr-2 size-4" />
                 View source
               </a>
@@ -76,9 +66,9 @@ export default function AboutPage() {
 
           <div className="space-y-5 text-sm leading-7 text-muted-foreground sm:text-base">
             <p>
-              Nepal has a growing technology ecosystem, with software
-              companies, startups, development teams, IT service providers,
-              and technology-focused organizations spread across the country.
+              Nepal has a growing technology ecosystem, with software companies,
+              startups, development teams, IT service providers, and
+              technology-focused organizations spread across the country.
             </p>
 
             <p>
@@ -88,10 +78,10 @@ export default function AboutPage() {
             </p>
 
             <p>
-              This project aims to bring that information together into a
-              clean, searchable directory that is useful for developers,
-              students, businesses, researchers, and anyone interested in
-              Nepal&apos;s technology industry.
+              This project aims to bring that information together into a clean,
+              searchable directory that is useful for developers, students,
+              businesses, researchers, and anyone interested in Nepal&apos;s
+              technology industry.
             </p>
           </div>
         </div>
@@ -99,9 +89,7 @@ export default function AboutPage() {
 
       <section className="border-t border-border/60 py-16 sm:py-20">
         <div className="mb-10 max-w-xl">
-          <p className="text-sm font-semibold text-foreground">
-            What matters
-          </p>
+          <p className="text-sm font-semibold text-foreground">What matters</p>
 
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
             Built around useful, transparent information.
@@ -147,9 +135,9 @@ export default function AboutPage() {
 
           <div className="space-y-5 text-sm leading-7 text-muted-foreground sm:text-base">
             <p>
-              Company information is collected from publicly available
-              sources and organized into a structured format to make it
-              easier to browse and search.
+              Company information is collected from publicly available sources
+              and organized into a structured format to make it easier to browse
+              and search.
             </p>
 
             <p>
@@ -160,8 +148,8 @@ export default function AboutPage() {
             </p>
 
             <p>
-              If you notice something inaccurate, outdated, or missing, you
-              can get in touch and help improve the directory.
+              If you notice something inaccurate, outdated, or missing, you can
+              get in touch and help improve the directory.
             </p>
           </div>
         </div>
@@ -220,8 +208,8 @@ export default function AboutPage() {
 
           <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
             Know a company that&apos;s missing? Found information that needs
-            updating? Your feedback can help make this resource more useful
-            for everyone exploring Nepal&apos;s technology ecosystem.
+            updating? Your feedback can help make this resource more useful for
+            everyone exploring Nepal&apos;s technology ecosystem.
           </p>
 
           <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -237,9 +225,7 @@ export default function AboutPage() {
               variant="ghost"
               className="rounded-full text-muted-foreground"
             >
-              <Link href="/companies">
-                Browse companies
-              </Link>
+              <Link href="/companies">Browse companies</Link>
             </Button>
           </div>
 

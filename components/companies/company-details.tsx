@@ -15,9 +15,7 @@ interface CompanyDetailProps {
   company: CompanyDetail;
 }
 
-export default function CompanyDetailPage({
-  company,
-}: CompanyDetailProps) {
+export default function CompanyDetailPage({ company }: CompanyDetailProps) {
   const services = company.company_services
     .map((item) => item.services)
     .filter(Boolean);
@@ -59,11 +57,7 @@ export default function CompanyDetailPage({
                     <MapPin className="size-4" />
 
                     <span>
-                      {[
-                        company.city,
-                        company.district,
-                        company.province,
-                      ]
+                      {[company.city, company.district, company.province]
                         .filter(Boolean)
                         .join(", ")}
                     </span>
@@ -131,9 +125,7 @@ export default function CompanyDetailPage({
 
             {company.company_sources.length > 0 && (
               <section className="mt-10">
-                <h2 className="text-sm font-semibold">
-                  Sources
-                </h2>
+                <h2 className="text-sm font-semibold">Sources</h2>
 
                 <div className="mt-4 space-y-2">
                   {company.company_sources.map((source) => (
@@ -146,9 +138,7 @@ export default function CompanyDetailPage({
                     >
                       <ExternalLink className="size-3.5 shrink-0" />
 
-                      <span className="truncate">
-                        {source.url}
-                      </span>
+                      <span className="truncate">{source.url}</span>
 
                       <ArrowUpRight className="ml-auto size-3.5 shrink-0 opacity-0 transition-opacity group-hover:opacity-100" />
                     </a>
@@ -159,16 +149,12 @@ export default function CompanyDetailPage({
           </div>
 
           <aside className="border-t border-border/60 bg-muted/10 p-6 sm:p-8 lg:border-l lg:border-t-0">
-            <h2 className="text-sm font-semibold">
-              Company information
-            </h2>
+            <h2 className="text-sm font-semibold">Company information</h2>
 
             <dl className="mt-5 divide-y divide-border/60">
               {company.city && (
                 <div className="flex items-center justify-between gap-4 py-3">
-                  <dt className="text-xs text-muted-foreground">
-                    Location
-                  </dt>
+                  <dt className="text-xs text-muted-foreground">Location</dt>
 
                   <dd className="text-right text-sm font-medium">
                     {company.city}
@@ -178,9 +164,7 @@ export default function CompanyDetailPage({
 
               {company.founded_year && (
                 <div className="flex items-center justify-between gap-4 py-3">
-                  <dt className="text-xs text-muted-foreground">
-                    Founded
-                  </dt>
+                  <dt className="text-xs text-muted-foreground">Founded</dt>
 
                   <dd className="text-sm font-medium">
                     {company.founded_year}
@@ -203,9 +187,7 @@ export default function CompanyDetailPage({
 
               {company.email && (
                 <div className="flex items-center justify-between gap-4 py-3">
-                  <dt className="text-xs text-muted-foreground">
-                    Email
-                  </dt>
+                  <dt className="text-xs text-muted-foreground">Email</dt>
 
                   <dd className="max-w-[160px] truncate text-right text-sm font-medium">
                     <a
@@ -220,13 +202,9 @@ export default function CompanyDetailPage({
 
               {company.phone && (
                 <div className="flex items-center justify-between gap-4 py-3">
-                  <dt className="text-xs text-muted-foreground">
-                    Phone
-                  </dt>
+                  <dt className="text-xs text-muted-foreground">Phone</dt>
 
-                  <dd className="text-sm font-medium">
-                    {company.phone}
-                  </dd>
+                  <dd className="text-sm font-medium">{company.phone}</dd>
                 </div>
               )}
             </dl>

@@ -34,8 +34,8 @@ export default function Error({
         </h1>
 
         <p className="mt-4 text-sm leading-6 text-muted-foreground sm:text-base">
-          Something unexpected happened while loading the page. Try
-          again, or return to the directory.
+          Something unexpected happened while loading the page. Try again, or
+          return to the directory.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

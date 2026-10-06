@@ -1,8 +1,9 @@
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { GridBackground } from "../grid-background";
-import NextTopLoader from 'nextjs-toploader';
+import NextTopLoader from "nextjs-toploader";
 import JsonLd from "@/components/seo/ld-json";
+import GlobalSearch from "@/components/search/global-search";
 
 interface MainLayoutProps {
   children: React.ReactNode;

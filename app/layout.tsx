@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import MainLayout from "@/components/layout/main-layout";
 import { defaultMetadata } from "@/lib/seo/metadata";
+import ServiceWorkerRegistration from "@/components/worker/service-worker";
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -29,12 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressContentEditableWarning suppressHydrationWarning>
-      <body className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} antialiased`}>
+      <body
+        className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} antialiased`}
+      >
         <ThemeProvider>
-          <MainLayout>
-            {children}
-          </MainLayout>
+          <MainLayout>{children}</MainLayout>
         </ThemeProvider>
+        <ServiceWorkerRegistration />
       </body>
     </html>
   );

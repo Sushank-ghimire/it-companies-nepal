@@ -5,7 +5,7 @@ import { ArrowUpRight, Heart } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/60 bg-background">
+    <footer className="border-t border-border/60 bg-transparent">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-10 py-12 md:flex-row md:items-start md:justify-between md:py-16">
           <div className="max-w-sm">
@@ -15,9 +15,7 @@ export function Footer() {
               aria-label="IT Companies Nepal"
             >
               <div className="flex size-8 items-center justify-center rounded-lg bg-foreground text-background transition-transform duration-200 group-hover:scale-105">
-                <span className="text-sm font-bold tracking-tight">
-                  IT
-                </span>
+                <span className="text-sm font-bold tracking-tight">IT</span>
               </div>
 
               <div className="flex flex-col leading-none">
@@ -32,8 +30,8 @@ export function Footer() {
             </Link>
 
             <p className="mt-5 max-w-xs text-sm leading-6 text-muted-foreground">
-              Discover and explore Nepal&aposs growing technology ecosystem,
-              all in one place.
+              Discover and explore Nepal&aposs growing technology ecosystem, all
+              in one place.
             </p>
           </div>
 
@@ -79,9 +77,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-4 border-t border-border/60 py-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-muted-foreground">
-            ghimiresushank.com.np
-          </p>
+          <p className="text-xs text-muted-foreground">ghimiresushank.com.np</p>
 
           <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
             Built with

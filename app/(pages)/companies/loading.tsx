@@ -15,10 +15,7 @@ export default function Loading() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {Array.from({ length: 15 }).map((_, index) => (
-          <div
-            key={index}
-            className="rounded-2xl border border-border/60 p-5"
-          >
+          <div key={index} className="rounded-2xl border border-border/60 p-5">
             <div className="flex items-start justify-between gap-4">
               <Skeleton className="size-11 rounded-xl" />
               <Skeleton className="h-5 w-16 rounded-full" />

@@ -25,11 +25,7 @@ export async function generateMetadata({
     });
   }
 
-  const location = [
-    company.city,
-    company.district,
-    company.province,
-  ]
+  const location = [company.city, company.district, company.province]
     .filter(Boolean)
     .join(", ");
 
@@ -47,21 +43,16 @@ export async function generateMetadata({
     keywords: [
       company.company_name,
       `${company.company_name} Nepal`,
-      ...(company.city
-        ? [`${company.company_name} ${company.city}`]
-        : []),
+      ...(company.city ? [`${company.company_name} ${company.city}`] : []),
       "IT company Nepal",
     ],
   });
 }
 
-export default async function CompanyPage({
-  params,
-}: CompanyPageProps) {
+export default async function CompanyPage({ params }: CompanyPageProps) {
   const { slug } = await params;
 
-  const { company: companyData, error } =
-    await getCompanyBySlug(slug);
+  const { company: companyData, error } = await getCompanyBySlug(slug);
 
   if (error) {
     if (error.code === "PGRST116") {

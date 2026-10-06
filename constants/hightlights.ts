@@ -1,8 +1,4 @@
-import {
-  Database,
-  ShieldCheck,
-  Users,
-} from "lucide-react";
+import { Database, ShieldCheck, Users } from "lucide-react";
 
 export const aboutHighlights = [
   {

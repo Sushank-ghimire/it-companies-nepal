@@ -18,8 +18,7 @@ export default function Companies({
 }: CompaniesProps) {
   const totalPages = Math.ceil(total / pageSize);
 
-  const start =
-    total === 0 ? 0 : (currentPage - 1) * pageSize + 1;
+  const start = total === 0 ? 0 : (currentPage - 1) * pageSize + 1;
 
   const end = Math.min(currentPage * pageSize, total);
 
@@ -38,8 +37,8 @@ export default function Companies({
             </h1>
 
             <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
-              Explore technology companies across Nepal, including
-              their locations, services, and company information.
+              Explore technology companies across Nepal, including their
+              locations, services, and company information.
             </p>
           </div>
 
@@ -55,10 +54,7 @@ export default function Companies({
         <>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {companies.map((company) => (
-              <CompanyCard
-                key={company.id}
-                company={company}
-              />
+              <CompanyCard key={company.id} company={company} />
             ))}
           </div>
 
@@ -73,9 +69,7 @@ export default function Companies({
             <Building2 className="size-5 text-muted-foreground" />
           </div>
 
-          <h2 className="mt-4 text-base font-semibold">
-            No companies found
-          </h2>
+          <h2 className="mt-4 text-base font-semibold">No companies found</h2>
 
           <p className="mt-2 max-w-sm text-sm leading-6 text-muted-foreground">
             There are no companies available for this page.

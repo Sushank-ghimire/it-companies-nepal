@@ -1,18 +1,11 @@
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Github,
-  Mail,
-  Linkedin,
-  Code2,
-} from "lucide-react";
+import { ArrowUpRight, Github, Mail, Linkedin, Code2 } from "lucide-react";
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = createMetadata({
   title: "Contact",
-  description:
-    "Get in touch with the team behind IT Companies Nepal.",
+  description: "Get in touch with the team behind IT Companies Nepal.",
   path: "/contact",
 });
 
@@ -99,9 +92,7 @@ export default function ContactPage() {
 
                 <div>
                   <p className="text-xs text-muted-foreground">GitHub</p>
-                  <p className="mt-0.5 text-sm font-medium">
-                    GitHub profile
-                  </p>
+                  <p className="mt-0.5 text-sm font-medium">GitHub profile</p>
                 </div>
               </div>
 
@@ -118,9 +109,7 @@ export default function ContactPage() {
 
                 <div>
                   <p className="text-xs text-muted-foreground">LinkedIn</p>
-                  <p className="mt-0.5 text-sm font-medium">
-                    LinkedIn profile
-                  </p>
+                  <p className="mt-0.5 text-sm font-medium">LinkedIn profile</p>
                 </div>
               </div>
 
@@ -143,8 +132,8 @@ export default function ContactPage() {
               </h2>
 
               <p className="mt-2 max-w-lg text-sm leading-6 text-muted-foreground">
-                Explore the source code, report issues, suggest improvements,
-                or contribute to the project.
+                Explore the source code, report issues, suggest improvements, or
+                contribute to the project.
               </p>
             </div>
 

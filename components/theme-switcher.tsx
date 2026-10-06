@@ -2,7 +2,10 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { ThemeAnimationType, useModeAnimation } from "react-theme-switch-animation";
+import {
+  ThemeAnimationType,
+  useModeAnimation,
+} from "react-theme-switch-animation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -26,10 +29,8 @@ export default function ThemeSwitcher() {
     }
 
     if (theme !== nextTheme) {
-      if (isDarkMode)
-        setTheme("light");
-      else
-        setTheme("dark")
+      if (isDarkMode) setTheme("light");
+      else setTheme("dark");
       toggleSwitchTheme();
     }
   };

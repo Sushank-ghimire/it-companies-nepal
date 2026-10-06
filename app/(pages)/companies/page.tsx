@@ -26,10 +26,7 @@ export default async function CompaniesPage({
   const params = await searchParams;
 
   const pageParam = Number(params.page);
-  const page =
-    Number.isInteger(pageParam) && pageParam > 0
-      ? pageParam
-      : 1;
+  const page = Number.isInteger(pageParam) && pageParam > 0 ? pageParam : 1;
 
   const { companies, total, error } = await getCompanies(page);
 

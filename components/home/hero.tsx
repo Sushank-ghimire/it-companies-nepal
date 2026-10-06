@@ -16,11 +16,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.05 }}
             className="text-balance text-5xl font-semibold tracking-[-0.055em] sm:text-6xl lg:text-7xl"
           >
-            Discover Nepal &lsquos
+            Discover Nepal&lsquo;s
             <br />
-            <span className="text-muted-foreground">
-              technology ecosystem.
-            </span>
+            <span className="text-muted-foreground">technology ecosystem.</span>
           </motion.h1>
 
           <motion.p
@@ -29,8 +27,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.12 }}
             className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg"
           >
-            Explore IT companies across Nepal, discover what they build,
-            where they&lsquore located, and the services they offer.
+            Explore IT companies across Nepal, discover what they build, where
+            they&lsquore located, and the services they offer.
           </motion.p>
 
           <motion.div
@@ -57,9 +55,7 @@ export function Hero() {
               variant="outline"
               className="h-11 rounded-full px-6"
             >
-              <Link href="/about">
-                Learn about the project
-              </Link>
+              <Link href="/about">Learn about the project</Link>
             </Button>
           </motion.div>
         </div>

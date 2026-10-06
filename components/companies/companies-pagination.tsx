@@ -58,9 +58,7 @@ export function CompaniesPagination({
       <PaginationContent>
         <PaginationItem>
           {currentPage > 1 ? (
-            <PaginationPrevious
-              href={createPageHref(currentPage - 1)}
-            />
+            <PaginationPrevious href={createPageHref(currentPage - 1)} />
           ) : (
             <span className="pointer-events-none opacity-40">
               <PaginationPrevious href="#" />
@@ -79,12 +77,8 @@ export function CompaniesPagination({
 
           return (
             <PaginationItem key={page}>
-              <PaginationLink
-                isActive={page === currentPage}
-              >
-                <Link href={createPageHref(page)}>
-                  {page}
-                </Link>
+              <PaginationLink isActive={page === currentPage}>
+                <Link href={createPageHref(page)}>{page}</Link>
               </PaginationLink>
             </PaginationItem>
           );
@@ -92,9 +86,7 @@ export function CompaniesPagination({
 
         <PaginationItem>
           {currentPage < totalPages ? (
-            <PaginationNext
-              href={createPageHref(currentPage + 1)}
-            />
+            <PaginationNext href={createPageHref(currentPage + 1)} />
           ) : (
             <span className="pointer-events-none opacity-40">
               <PaginationNext href="#" />

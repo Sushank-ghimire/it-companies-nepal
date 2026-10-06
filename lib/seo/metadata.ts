@@ -56,12 +56,9 @@ export function createMetadata({
   keywords = [],
   noIndex = false,
 }: MetadataProps = {}): Metadata {
-  const seoTitle = title
-    ? `${title} | ${siteConfig.name}`
-    : siteConfig.name;
+  const seoTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
 
-  const seoDescription =
-    description || siteConfig.description;
+  const seoDescription = description || siteConfig.description;
 
   const seoImage = image || siteConfig.ogImage;
 
@@ -74,10 +71,7 @@ export function createMetadata({
 
     description: seoDescription,
 
-    keywords: [
-      ...siteConfig.keywords,
-      ...keywords,
-    ],
+    keywords: [...siteConfig.keywords, ...keywords],
 
     authors: [
       {
