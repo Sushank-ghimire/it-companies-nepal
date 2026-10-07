@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Lora, Roboto_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@/components/theme-provider";
 import MainLayout from "@/components/layout/main-layout";
 import { defaultMetadata } from "@/lib/seo/metadata";
 import ServiceWorkerRegistration from "@/components/worker/service-worker";

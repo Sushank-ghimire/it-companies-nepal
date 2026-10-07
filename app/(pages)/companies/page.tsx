@@ -6,6 +6,8 @@ import type { Metadata } from "next";
 interface CompaniesPageProps {
   searchParams: Promise<{
     page?: string;
+    district?: string;
+    province?: string;
   }>;
 }
 
@@ -28,7 +30,14 @@ export default async function CompaniesPage({
   const pageParam = Number(params.page);
   const page = Number.isInteger(pageParam) && pageParam > 0 ? pageParam : 1;
 
-  const { companies, total, error } = await getCompanies(page);
+  const province = params.province?.trim() || null;
+  const district = params.district?.trim() || null;
+
+  const { companies, total, error } = await getCompanies({
+    page,
+    province,
+    district,
+  });
 
   if (error) {
     throw error;
@@ -40,6 +49,8 @@ export default async function CompaniesPage({
       currentPage={page}
       pageSize={PAGE_SIZE}
       total={total}
+      province={province}
+      district={district}
     />
   );
 }

@@ -2,12 +2,15 @@ import { Building2 } from "lucide-react";
 import { CompanyCard } from "./company-card";
 import { CompaniesPagination } from "./companies-pagination";
 import { Company } from "@/types/schemas";
+import { CompaniesFilters } from "./companies-filter";
 
 interface CompaniesProps {
   companies: Company[];
   currentPage: number;
   pageSize: number;
   total: number;
+  province: string | null;
+  district: string | null;
 }
 
 export default function Companies({
@@ -15,6 +18,8 @@ export default function Companies({
   currentPage,
   pageSize,
   total,
+  province,
+  district,
 }: CompaniesProps) {
   const totalPages = Math.ceil(total / pageSize);
 
@@ -49,6 +54,8 @@ export default function Companies({
           )}
         </div>
       </header>
+
+      <CompaniesFilters province={province} district={district} />
 
       {companies.length > 0 ? (
         <>

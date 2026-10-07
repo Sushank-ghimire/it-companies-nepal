@@ -1,6 +1,4 @@
-import Link from "next/link";
 import {
-  ArrowLeft,
   ArrowUpRight,
   Building2,
   ExternalLink,
@@ -10,6 +8,7 @@ import {
   Users,
 } from "lucide-react";
 import { CompanyDetail } from "@/types/schemas";
+import { CompanyBackButton } from "./back-button";
 
 interface CompanyDetailProps {
   company: CompanyDetail;
@@ -22,13 +21,7 @@ export default function CompanyDetailPage({ company }: CompanyDetailProps) {
 
   return (
     <article className="py-6 sm:py-10">
-      <Link
-        href="/companies"
-        className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-      >
-        <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-0.5" />
-        Back to companies
-      </Link>
+      <CompanyBackButton />
 
       <div className="mt-8 overflow-hidden rounded-3xl border border-border/60 bg-background">
         <div className="border-b border-border/60 p-6 sm:p-8 lg:p-10">

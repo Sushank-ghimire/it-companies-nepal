@@ -13,6 +13,20 @@ export default function Loading() {
         <Skeleton className="hidden h-9 w-24 rounded-lg sm:block" />
       </div>
 
+      <div className="mb-8 flex flex-col gap-3 rounded-2xl border border-border/60 bg-muted/20 p-3 sm:flex-row sm:items-center">
+        <div className="flex items-center gap-2 px-1">
+          <Skeleton className="size-4 rounded" />
+          <Skeleton className="h-4 w-28" />
+        </div>
+
+        <div className="flex flex-1 flex-col gap-2 sm:flex-row">
+          <Skeleton className="h-10 w-full rounded-md sm:w-[220px]" />
+          <Skeleton className="h-10 w-full rounded-md sm:w-[220px]" />
+        </div>
+
+        <Skeleton className="h-9 w-full rounded-md sm:w-16" />
+      </div>
+
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {Array.from({ length: 15 }).map((_, index) => (
           <div key={index} className="rounded-2xl border border-border/60 p-5">

@@ -1,6 +1,12 @@
 import { cacheLife } from "next/cache";
 import { supabase } from "@/lib/supabase/client";
 
+interface GetCompaniesOptions {
+  page?: number;
+  province?: string | null;
+  district?: string | null;
+}
+
 export async function getCompanyBySlug(slug: string) {
   "use cache";
   cacheLife("weeks");
@@ -28,18 +34,36 @@ export async function getCompanyBySlug(slug: string) {
 
 export const PAGE_SIZE = 15;
 
-export async function getCompanies(page: number) {
+export async function getCompanies({
+  page = 1,
+  province = null,
+  district = null,
+}: GetCompaniesOptions) {
   "use cache";
 
   cacheLife("weeks");
 
-  const offset = (page - 1) * PAGE_SIZE;
+  const safePage = Number.isInteger(page) && page > 0 ? page : 1;
 
-  const { data, error, count } = await supabase
+  const offset = (safePage - 1) * PAGE_SIZE;
+
+  let query = supabase
     .from("companies")
     .select("*", { count: "exact" })
-    .order("company_name", { ascending: true })
-    .range(offset, offset + PAGE_SIZE - 1);
+    .order("company_name", { ascending: true });
+
+  if (province) {
+    query = query.eq("province", province);
+  }
+
+  if (district) {
+    query = query.eq("district", district);
+  }
+
+  const { data, error, count } = await query.range(
+    offset,
+    offset + PAGE_SIZE - 1,
+  );
 
   return {
     companies: data ?? [],
