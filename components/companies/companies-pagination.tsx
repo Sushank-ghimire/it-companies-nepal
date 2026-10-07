@@ -17,6 +17,8 @@ interface CompaniesPaginationProps {
   district?: string | null;
 }
 
+type PageItem = number | "ellipsis";
+
 function createPageUrl({
   page,
   province,
@@ -45,15 +47,23 @@ function createPageUrl({
   return query ? `/companies?${query}` : "/companies";
 }
 
-function getPageNumbers(currPage: number, totalPages: number) {
+function getPageNumbers(currPage: number, totalPages: number): PageItem[] {
   if (totalPages <= 5) {
     return Array.from({ length: totalPages }, (_, idx) => idx + 1);
   }
 
-  if (currPage <= 3) return [1, 2, 3, "...", totalPages];
+  if (currPage <= 3) return [1, 2, 3, "ellipsis", totalPages];
   if (currPage >= totalPages - 2)
-    return [1, "...", totalPages - 2, totalPages - 1, totalPages];
-  return [1, "...", currPage - 1, currPage, currPage + 1, "...", totalPages];
+    return [1, "ellipsis", totalPages - 2, totalPages - 1, totalPages];
+  return [
+    1,
+    "ellipsis",
+    currPage - 1,
+    currPage,
+    currPage + 1,
+    "ellipsis",
+    totalPages,
+  ];
 }
 
 export function CompaniesPagination({
@@ -86,7 +96,7 @@ export function CompaniesPagination({
         </PaginationItem>
 
         {pages.map((page, index) => {
-          if (page === "...") {
+          if (page === "ellipsis") {
             return (
               <PaginationItem key={`ellipsis-${index}`}>
                 <span
@@ -102,7 +112,7 @@ export function CompaniesPagination({
             <PaginationItem key={page}>
               <PaginationLink
                 href={createPageUrl({
-                  page: Number(page),
+                  page,
                   province,
                   district,
                 })}

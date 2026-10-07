@@ -68,6 +68,8 @@ export default function Companies({
           <CompaniesPagination
             currentPage={currentPage}
             totalPages={totalPages}
+            province={province}
+            district={district}
           />
         </>
       ) : (
