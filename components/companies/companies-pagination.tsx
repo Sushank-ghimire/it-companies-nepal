@@ -1,97 +1,133 @@
-import Link from "next/link";
+"use client";
+
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { MoreHorizontal } from "lucide-react";
 
 interface CompaniesPaginationProps {
   currentPage: number;
   totalPages: number;
+  province?: string | null;
+  district?: string | null;
 }
 
-function createPageHref(page: number) {
-  return page === 1 ? "/companies" : `/companies?page=${page}`;
+function createPageUrl({
+  page,
+  province,
+  district,
+}: {
+  page: number;
+  province?: string | null;
+  district?: string | null;
+}) {
+  const params = new URLSearchParams();
+
+  if (province) {
+    params.set("province", province);
+  }
+
+  if (district) {
+    params.set("district", district);
+  }
+
+  if (page > 1) {
+    params.set("page", String(page));
+  }
+
+  const query = params.toString();
+
+  return query ? `/companies?${query}` : "/companies";
+}
+
+function getPageNumbers(currPage: number, totalPages: number) {
+  if (totalPages <= 5) {
+    return Array.from({ length: totalPages }, (_, idx) => idx + 1);
+  }
+
+  if (currPage <= 3) return [1, 2, 3, "...", totalPages];
+  if (currPage >= totalPages - 2)
+    return [1, "...", totalPages - 2, totalPages - 1, totalPages];
+  return [1, "...", currPage - 1, currPage, currPage + 1, "...", totalPages];
 }
 
 export function CompaniesPagination({
   currentPage,
   totalPages,
+  province,
+  district,
 }: CompaniesPaginationProps) {
   if (totalPages <= 1) {
     return null;
   }
 
-  const pages: (number | "ellipsis")[] = [];
-
-  if (totalPages <= 7) {
-    for (let page = 1; page <= totalPages; page++) {
-      pages.push(page);
-    }
-  } else {
-    pages.push(1);
-
-    if (currentPage > 4) {
-      pages.push("ellipsis");
-    }
-
-    const start = Math.max(2, currentPage - 1);
-    const end = Math.min(totalPages - 1, currentPage + 1);
-
-    for (let page = start; page <= end; page++) {
-      pages.push(page);
-    }
-
-    if (currentPage < totalPages - 3) {
-      pages.push("ellipsis");
-    }
-
-    pages.push(totalPages);
-  }
+  const pages = getPageNumbers(currentPage, totalPages);
 
   return (
     <Pagination className="mt-10">
       <PaginationContent>
         <PaginationItem>
-          {currentPage > 1 ? (
-            <PaginationPrevious href={createPageHref(currentPage - 1)} />
-          ) : (
-            <span className="pointer-events-none opacity-40">
-              <PaginationPrevious href="#" />
-            </span>
-          )}
+          <PaginationPrevious
+            href={createPageUrl({
+              page: Math.max(currentPage - 1, 1),
+              province,
+              district,
+            })}
+            aria-disabled={currentPage === 1}
+            className={
+              currentPage === 1 ? "pointer-events-none opacity-50" : undefined
+            }
+          />
         </PaginationItem>
 
         {pages.map((page, index) => {
-          if (page === "ellipsis") {
+          if (page === "...") {
             return (
               <PaginationItem key={`ellipsis-${index}`}>
-                <PaginationEllipsis />
+                <span
+                  aria-hidden="true"
+                  className="flex size-9 items-center justify-center"
+                >
+                  <MoreHorizontal className="size-4 text-muted-foreground" />
+                </span>
               </PaginationItem>
             );
           }
-
           return (
             <PaginationItem key={page}>
-              <PaginationLink isActive={page === currentPage}>
-                <Link href={createPageHref(page)}>{page}</Link>
+              <PaginationLink
+                href={createPageUrl({
+                  page: Number(page),
+                  province,
+                  district,
+                })}
+                isActive={page === currentPage}
+              >
+                {page}
               </PaginationLink>
             </PaginationItem>
           );
         })}
 
         <PaginationItem>
-          {currentPage < totalPages ? (
-            <PaginationNext href={createPageHref(currentPage + 1)} />
-          ) : (
-            <span className="pointer-events-none opacity-40">
-              <PaginationNext href="#" />
-            </span>
-          )}
+          <PaginationNext
+            href={createPageUrl({
+              page: Math.min(currentPage + 1, totalPages),
+              province,
+              district,
+            })}
+            aria-disabled={currentPage === totalPages}
+            className={
+              currentPage === totalPages
+                ? "pointer-events-none opacity-50"
+                : undefined
+            }
+          />
         </PaginationItem>
       </PaginationContent>
     </Pagination>
